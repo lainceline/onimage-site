@@ -9,7 +9,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 
-    <link href="public/css/comingsoon.css" rel="stylesheet">
+    <link href="css/comingsoon.css" rel="stylesheet">
 
 </head>
 <body>
@@ -19,7 +19,7 @@
     </div>
 
     <div class="cookie-center">
-        <img class="cookie-img" src="public/img/cookie-mystery.jpg" />
+        <img class="cookie-img" src="img/cookie-mystery.jpg" />
     </div>
 
     <div class="cookie-bar-bottom">
