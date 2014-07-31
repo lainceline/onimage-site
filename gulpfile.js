@@ -4,6 +4,7 @@ var autoprefixer    = require('gulp-autoprefixer');
 var minifycss       = require('gulp-minify-css');
 var rename          = require('gulp-rename');
 var notify          = require('gulp-notify');
+var codecept	    = require('gulp-codeception');
 
 gulp.task('sass', function() {
     return gulp.src('src/styles/sass/*.scss')
@@ -14,6 +15,10 @@ gulp.task('sass', function() {
         .pipe(minifycss())
         .pipe(gulp.dest('public/css'))
         .pipe(notify({ message: 'Sass task complete'}));
+});
+
+gulp.task('test', function() {
+    return gulp.src('./app/tests/**/*.php').pipe(codecept());
 });
 
 gulp.task('watch', function() {
