@@ -23,8 +23,9 @@ gulp.task('test', function() {
 });
 
 gulp.task('win', function() {
-    git.pull('origin', 'master');
-    gulp.start('sass', 'test');
+    git.pull('origin', 'master', function(err) {
+        gulp.start('sass', 'test');
+    });
 })
 
 gulp.task('watch', function() {
