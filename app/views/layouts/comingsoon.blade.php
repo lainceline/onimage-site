@@ -8,7 +8,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 
-    <link href="css/comingsoon.css" rel="stylesheet">
+    <link href="css/comingsoon.min.css" rel="stylesheet">
 
 </head>
 <body>

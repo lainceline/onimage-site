@@ -1,3 +1,23 @@
 {
-
+  "name": "bisforbryan2",
+  "version": "0.0.0",
+  "description": "bryan nom",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:onijim/bisforbryan2.git"
+  },
+  "author": "James Asher",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-notify": "^1.4.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^0.7.2"
+  }
 }
