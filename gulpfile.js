@@ -22,7 +22,7 @@ gulp.task('test', function() {
     return gulp.src('./app/tests/**/*.php').pipe(codecept());
 });
 
-gulp.task('git', function() {
+gulp.task('win', function() {
     git.pull('origin', 'master');
     gulp.start('sass', 'test');
 })
