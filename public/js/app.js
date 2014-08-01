@@ -1,0 +1,1 @@
+var imageApp = angular.module('imageApp', ['imageCtrl', 'imageDirectives', 'ngRoute']);

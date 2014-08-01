@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('comingsoon');
-});
+Route::get('/', 'HomeController@showHome');
+
+Route::resource('image', 'ImageController');
