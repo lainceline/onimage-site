@@ -11,9 +11,16 @@
 <body  ng-app="imageApp">
     <images-navbar></images-navbar>
 
-    <images></images>
+    <div class="wrap">
 
-    <images-footer></images-footer>
+        <uploader></uploader>
+
+        <images></images>
+        <images></images>
+
+        <images-footer></images-footer>
+
+    <div class="wrap">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

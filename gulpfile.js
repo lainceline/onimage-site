@@ -15,8 +15,7 @@ gulp.task('sass', function() {
         .pipe(autoprefixer('last 10 version', 'safari 5', 'ie 9', 'android 4', 'ios 7'))
         .pipe(rename({ suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest('public/css'))
-        .pipe(notify({ message: 'Sass task complete'}));
+        .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('jade', function() {
@@ -42,5 +41,6 @@ gulp.task('win', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('src/styles/sass/*.scss', ['styles']);
+    gulp.watch('src/styles/sass/*.scss', ['sass']);
+    gulp.watch('src/views/*.jade', ['jade']);
 });
