@@ -7,8 +7,10 @@ class ImageTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         for ($i = 0; $i < 100; $i++) {
+            $file = $faker->image('public/uploads', 640, 480, 'cats');
+
             $image = Image::create(array(
-                'filename' => $faker->imageUrl(640, 480, 'cats'),
+                'filename' => substr($file, 6),
                 'title' => $faker->sentence()
             ));
         }
