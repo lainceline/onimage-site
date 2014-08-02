@@ -8,4 +8,4 @@ composer.lock
 Thumbs.db
 /node_modules/
 .idea/
-/uploads/
+/uploads/*.*
