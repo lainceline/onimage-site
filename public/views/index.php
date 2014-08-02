@@ -14,12 +14,13 @@
 
     <images-navbar></images-navbar>
 
-    <div class="wrap">
+    <div class="wrap" ng-controller="ImageController as imageCtrl">
 
         <uploader></uploader>
 
-        <images></images>
-        <images></images>
+        <div infinite-scroll="loadMore()" infinite-scroll-distance="1">
+            <images ng-repeat="row in imageRow"></images>
+        </div>
 
     </div>
 

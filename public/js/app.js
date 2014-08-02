@@ -1,1 +1,1 @@
-var imageApp = angular.module('imageApp', ['imageCtrl', 'imageDirectives', 'ngRoute']);
+var imageApp = angular.module('imageApp', ['imageCtrl', 'imageDirectives', 'ngRoute', 'infinite-scroll']);

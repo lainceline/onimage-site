@@ -17,6 +17,8 @@ class HomeController extends BaseController {
 
 	public function showHome()
 	{
+        Session::put('counter', 0);
+
 		return View::make('index');
 	}
 

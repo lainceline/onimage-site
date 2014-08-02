@@ -1,4 +1,38 @@
-div.container-fluid
-    div.page-header
-        h1 Upload files&nbsp;
-    form(action="/upload").dropzone#img-dropzone
+.jumbotron
+    h1 B is for Bryan
+    span Click or drag and drop.
+    #actions.row
+        .col-lg-12
+            span.btn.btn-success.fileinput-button
+                i.glyphicon.glyphicon-plus
+                span Add files
+            button.btn.btn-primary.start(type="submit")
+                i.glyphicon.glyphicon-upload
+                span Upload all
+    .row
+        .col-lg-12
+            span.fileupload-process
+                .progress.progress-striped.active#total-progress(role="progressbar", aria-valuemin="0", aria-valuemax="100", aria-valuenow="0")
+                    .progress-bar.progress-bar-success(style="width: 0%;", data-dz-uploadprogress)
+    .row.preview-box
+        .col-lg-12
+            .table.table-striped.files#previews
+                .file-row#template
+                    div
+                        span.preview
+                            img(data-dz-thumbnail)
+                    div
+                        p.name(data-dz-name)
+                        strong.error.text-danger(data-dz-errormessage)
+                    div
+                        p.size(data-dz-size)
+                        .progress.progress-striped.active(role="progressbar", aria-valuemin="0", aria-valuemax="100", aria-valuenow="0")
+                            .progress-bar.progress-bar-success(style="width: 0%;", data-dz-uploadprogress)
+                    div
+                        button.btn.btn-primary.start
+                            i.glyphicon.glyphicon-upload
+                            span Start
+                        button.btn.btn-warning.cancel(data-dz-remove)
+                            i.glyphicon.glyphicon.ban-circle
+                            span Cancel
+

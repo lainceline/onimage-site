@@ -2,85 +2,47 @@
 
 class ImageController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
+    public function all()
+    {
+        return Image::all();
+    }
+
+    public function getImages($amount) {
+
+        if (!Session::has('counter')) {
+            Session::put('counter', 0);
+        }
+
+        $counter = Session::get('counter');
+
+        $images = Image::skip($counter * $amount)->take($amount)->get();
+
+        Session::put('counter', ++$counter);
+
+        return $images;
+    }
+
+    public function upload()
+    {
+        $file = Input::file('file');
+        $destinationPath = 'uploads';
+        $filename = str_random(12);
+        $realFilename = $file->getClientOriginalName();
+
+        $upload_success = Input::file('file')->move($destinationPath, $filename);
+
+        if ($upload_success) {
+            //Ok, lets put it in the database now
+            $image = new Image();
+            $image->filename = $filename;
+            $image->title = $realFilename;
+            $image->save();
+            return $image;
+        } else {
+            return Response::json('error', 400);
+        }
 
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
+    }
 
 }

@@ -41,6 +41,6 @@ gulp.task('win', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('src/styles/sass/*.scss', ['sass']);
+    gulp.watch('src/styles/sass/**/*.scss', ['sass']);
     gulp.watch('src/views/*.jade', ['jade']);
 });
