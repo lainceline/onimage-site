@@ -16,7 +16,7 @@ class ImageController extends \BaseController {
     public function upload()
     {
         $file = Input::file('file');
-        $destinationPath = 'uploads';
+        $destinationPath = 'public/uploads';
         $filename = str_random(12);
 
         $realFilename = $file->getClientOriginalName();
@@ -26,7 +26,7 @@ class ImageController extends \BaseController {
         if ($upload_success) {
             //Ok, lets put it in the database now
             $image = new Image();
-            $image->filename = $filename;
+            $image->filename = 'uploads/'.$filename;
             $image->title = $realFilename;
             $image->save();
             return $image;
