@@ -19,7 +19,6 @@ angular.module('imageDirectives', [])
             replace: 'true',
             templateUrl: 'views/uploader.html',
             link: function(scope, elem, attrs) {
-
                 var jumbotron = elem.get(0);
                 var previewNode = elem.find('#template').get(0);
                 var previewTemplate = previewNode.parentNode.innerHTML;
@@ -60,10 +59,6 @@ angular.module('imageDirectives', [])
                     timer(function() {
                         elem.find('.preview-box').css('display', 'none');
                     }, 5000);
-                });
-
-                myDropzone.on('success', function(file, response) {
-                    console.log(response);
                 });
 
                 // Setup the buttons for all transfers

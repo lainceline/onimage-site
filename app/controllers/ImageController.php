@@ -1,5 +1,7 @@
 <?php
 
+use Intervention\Image\ImageManagerStatic as ImageKit;
+
 class ImageController extends \BaseController {
 
     public function all()
@@ -16,25 +18,24 @@ class ImageController extends \BaseController {
     public function upload()
     {
         $file = Input::file('file');
-        $destinationPath = 'public/uploads';
-        $filename = str_random(12);
+        
+        $destinationPath = 'public/uploads/';
 
         $realFilename = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
 
-        $upload_success = Input::file('file')->move($destinationPath, $filename);
+        $filename = str_random(12).'.'.$extension;
 
-        if ($upload_success) {
-            //Ok, lets put it in the database now
-            $image = new Image();
-            $image->filename = 'uploads/'.$filename;
-            $image->title = $realFilename;
-            $image->save();
-            return $image;
+        $image = ImageKit::make($file)->fit(640, 480)->save($destinationPath.$filename);
+
+        if ($image) {
+            $dbimage = new Image();
+            $dbimage->filename = 'uploads/'.$filename;
+            $dbimage->title = $realFilename;
+            $dbimage->save();
+            return $dbimage;
         } else {
             return Response::json('error', 400);
         }
-
-
     }
-
 }
