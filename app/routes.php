@@ -13,8 +13,8 @@
 
 Route::get('/', 'HomeController@showHome');
 
-//Route::get('/images', 'ImageController@all');
+Route::get('/images', 'ImageController@all');
 
-Route::get('/images/{amount}', 'ImageController@getImages');
+Route::get('/images/{page}', 'ImageController@getPage');
 
 Route::post('/upload', 'ImageController@upload');

@@ -18,8 +18,10 @@
 
         <uploader></uploader>
 
-        <div infinite-scroll="loadMore()" infinite-scroll-distance="1">
-            <images ng-repeat="row in imageRow"></images>
+        <div class="img-container" infinite-scroll="loadMore()" infinite-scroll-distance="1">
+            <div class="row">
+                <images ng-repeat="image in images"></images>
+            </div>
         </div>
 
     </div>

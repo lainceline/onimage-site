@@ -7,19 +7,10 @@ class ImageController extends \BaseController {
         return Image::all();
     }
 
-    public function getImages($amount) {
+    public function getPage($page) {
+        Paginator::setCurrentPage($page);
 
-        if (!Session::has('counter')) {
-            Session::put('counter', 0);
-        }
-
-        $counter = Session::get('counter');
-
-        $images = Image::skip($counter * $amount)->take($amount)->get();
-
-        Session::put('counter', ++$counter);
-
-        return $images;
+        return Image::paginate(9);
     }
 
     public function upload()
@@ -27,6 +18,7 @@ class ImageController extends \BaseController {
         $file = Input::file('file');
         $destinationPath = 'uploads';
         $filename = str_random(12);
+
         $realFilename = $file->getClientOriginalName();
 
         $upload_success = Input::file('file')->move($destinationPath, $filename);
