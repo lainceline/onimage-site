@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@showHome');
+Route::get('/', function() {
+    return View::make('index');
+});
 
 Route::get('/images', 'ImageController@all');
 
