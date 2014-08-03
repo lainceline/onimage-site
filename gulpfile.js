@@ -40,3 +40,17 @@ gulp.task('watch', function() {
     gulp.watch('src/styles/sass/**/*.scss', ['sass']);
     gulp.watch('src/views/*.jade', ['jade']);
 });
+
+gulp.task('clean-views', function() {
+   return gulp.src('public/views/*')
+       .pipe(clean());
+});
+
+gulp.task('clean-css', function() {
+    return gulp.src('public/css/*')
+        .pipe(clean());
+});
+
+gulp.task('clean', ['clean-views', 'clean-css'], function() {
+
+});
