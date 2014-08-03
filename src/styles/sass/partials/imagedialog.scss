@@ -1,0 +1,10 @@
+/* Customizations to ng-dialog default theme */
+
+.ngdialog.ngdialog-theme-default {
+  text-align: center;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+  position: relative;
+  display: inline-block;
+}
