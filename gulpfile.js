@@ -7,6 +7,7 @@ var notify          = require('gulp-notify');
 var codecept	    = require('gulp-codeception');
 var git             = require('gulp-git');
 var jade            = require('gulp-jade');
+var clean           = require('gulp-clean');
 
 gulp.task('sass', function() {
     return gulp.src('src/styles/sass/*.scss')
@@ -17,14 +18,18 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('jade', function() {
-   gulp.src('src/views/*.jade')
+gulp.task('make-jade', function() {
+   return gulp.src('src/views/*.jade')
        .pipe(jade())
        .pipe(gulp.dest('public/views/'));
+});
 
-   // Do this to please Laravel.  It will only route to a .php file
-   gulp.src('public/views/index.html')
-       .pipe(rename({ extname: '.php' }));
+gulp.task('jade', ['make-jade'], function() {
+    // Do this to please Laravel.  It will only route to a .php file
+    return gulp.src('public/views/index.html')
+        .pipe(clean({force: true}))
+        .pipe(rename({ extname: '.php' }))
+        .pipe(gulp.dest('public/views/'));
 });
 
 gulp.task('test', function() {
