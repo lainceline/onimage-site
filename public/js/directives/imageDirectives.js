@@ -13,7 +13,11 @@ angular.module('imageDirectives', [])
             templateUrl: 'views/images.html',
             link: function(scope, elem, attrs) {
                 scope.open = function() {
-                    ngDialog.open({template: 'imageDialog', scope: scope});
+                    ngDialog.open({
+                        template: 'views/imageDialog.html',
+                        className: 'ngdialog-theme-default',
+                        scope: scope
+                    });
                 }
             }
         };
