@@ -30,5 +30,17 @@ body {
   i {
     position: absolute;
     padding: 9px 10px;
+
+    @media (max-width: 768px) {
+      padding: 19px 10px;
+    }
+  }
+}
+
+#actions {
+  .btn.start {
+    @media (max-width: 360px) {
+      margin-top: 5px;
+    }
   }
 }

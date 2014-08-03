@@ -1,5 +1,6 @@
 angular.module('imageCtrl', [])
     .controller('ImageController', function($scope, $http) {
+        //Commenting out the infinite scroll stuff until I figure out how to make this work with searching
 /*
         $scope.counter = 1;
 
