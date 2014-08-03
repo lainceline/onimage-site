@@ -1,5 +1,8 @@
 <div class="col-md-4">
-    <a href="{{image.filename}}" class="thumbnail">
-        <img class="img-responsive" ng-src="{{image.filename}}" alt="{{image.realFilename}}"></img>
+    <a href="{{image.image}}" class="thumbnail">
+        <img class="img-responsive" ng-src="{{image.thumbnail}}" alt="{{image.original_filename}}"></img>
+        <div class="caption" style="font-size: .8em;">
+            {{image.original_filename}}
+        </div>
     </a>
 </div>

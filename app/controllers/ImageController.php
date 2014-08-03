@@ -27,7 +27,8 @@ class ImageController extends \BaseController {
 
         $validator = Validator::make($input, $rules);
 
-        $destinationPath = 'public/uploads/';
+        $imagePath = 'public/uploads/';
+        $thumbPath = 'public/uploads/thumbs/';
 
         $origFilename = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
@@ -37,22 +38,25 @@ class ImageController extends \BaseController {
             return Response::json('Supported extensions: jpg, jpeg, gif, png', 400);
         }
 
-        if (!in_array($mimetype, $this->mimeWhitelist)) {
+        if (!in_array($mimetype, $this->mimeWhitelist) || $validator->fails()) {
             return Response::json('Error: this is not an image', 400);
-        }
-
-        if ($validator->fails()) {
-            return Response::json('Error: Not an image');
         }
 
         $filename = str_random(12).'.'.$extension;
 
-        $image = ImageKit::make($file)->fit(640, 480)->save($destinationPath.$filename);
+        $image = ImageKit::make($file);
+
+        //save the original sized image for displaying when clicked on
+        $image->save($imagePath.$filename);
+
+        // make the thumbnail for displaying on the page
+        $image->fit(640, 480)->save($thumbPath.'thumb-'.$filename);
 
         if ($image) {
             $dbimage = new Image();
-            $dbimage->filename = 'uploads/'.$filename;
-            $dbimage->title = $origFilename;
+            $dbimage->thumbnail = 'uploads/thumbs/thumb-'.$filename;
+            $dbimage->image = 'uploads/'.$filename;
+            $dbimage->original_filename = $origFilename;
             $dbimage->save();
             return $dbimage;
         } else {
