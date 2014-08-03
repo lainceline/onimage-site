@@ -6,7 +6,6 @@ var rename          = require('gulp-rename');
 var notify          = require('gulp-notify');
 var codecept	    = require('gulp-codeception');
 var git             = require('gulp-git');
-var runsequence     = require('run-sequence');
 var jade            = require('gulp-jade');
 
 gulp.task('sass', function() {
@@ -19,25 +18,17 @@ gulp.task('sass', function() {
 });
 
 gulp.task('jade', function() {
-   return gulp.src('src/views/*.jade')
+   gulp.src('src/views/*.jade')
        .pipe(jade())
-       .pipe(gulp.dest('public/views/'))
+       .pipe(gulp.dest('public/views/'));
+
+   // Do this to please Laravel.  It will only route to a .php file
+   gulp.src('public/views/index.html')
+       .pipe(rename({ extname: '.php' }));
 });
 
 gulp.task('test', function() {
     return gulp.src('./app/tests/**/*.php').pipe(codecept());
-});
-
-gulp.task('pull', function() {
-    git.pull('origin', 'master');
-});
-
-gulp.task('post-pull', ['win'], function () {
-    gulp.start('sass', 'test');
-});
-
-gulp.task('win', function() {
-   runsequence('pull', 'post-pull');
 });
 
 gulp.task('watch', function() {

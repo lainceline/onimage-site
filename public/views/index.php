@@ -12,7 +12,7 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.min.js"></script>
 </head>
-<body  ng-app="imageApp">
+<body ng-app="imageApp">
 
     <images-navbar></images-navbar>
 

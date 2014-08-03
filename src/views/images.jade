@@ -1,0 +1,5 @@
+.col-md-4
+    a.thumbnail(ng-click="open()")
+        img.img-responsive(ng-src="{{image.thumbnail}}", alt="{{image.original_filename}}")
+        .caption.small-caption
+            {{image.original_filename}}
