@@ -18,3 +18,16 @@ body {
 .small-caption {
   font-size: 0.8em;
 }
+
+.search-form {
+  position: relative;
+
+  input {
+    padding-left: 30px;
+  }
+
+  i {
+    position: absolute;
+    padding: 9px 10px;
+  }
+}
