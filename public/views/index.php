@@ -5,6 +5,8 @@
     <title>B is for Bryan</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ngDialog.min.css">
+    <link rel="stylesheet" href="css/ngDialog-theme-default.min.css">
 
     <link rel="stylesheet" href="css/bryan.min.css">
 
@@ -26,12 +28,19 @@
 
     </div>
 
+    <script type="text/ng-template" id="imageDialog">
+        <div class="ngdialog-message">
+            <img ng-show="ngDialogData.image" ng-src="{{image.image}}" /></img>
+        </div>
+    </script>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
 
     <script src="js/vendor/ng-infinite-scroll.min.js"></script>
+    <script src="js/vendor/ngDialog.min.js"></script>
 
     <script src="js/controllers/imageCtrl.js"></script>
     <script src="js/directives/imageDirectives.js"> </script>

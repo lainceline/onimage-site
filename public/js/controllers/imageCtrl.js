@@ -1,5 +1,5 @@
 angular.module('imageCtrl', [])
-    .controller('ImageController', function($scope, $http) {
+    .controller('ImageController', function($scope, $http, ngDialog) {
 
         $scope.counter = 1;
 
@@ -32,5 +32,9 @@ angular.module('imageCtrl', [])
                 .error(function(data, status, headers, config) {
                     console.log(status);
                 });
-           }
+        }
+
+        $scope.openImage = function() {
+
+        };
     });

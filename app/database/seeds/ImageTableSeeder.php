@@ -12,7 +12,7 @@ class ImageTableSeeder extends Seeder
             $image = Image::create(array(
                 'image' => substr($file, 6),
                 'thumbnail' => substr($file, 6),
-                'original_filename' => substr($file, 14)
+                'original_filename' => substr($file, 15)
             ));
         }
     }
