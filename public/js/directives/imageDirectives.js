@@ -6,11 +6,16 @@ angular.module('imageDirectives', [])
             templateUrl: 'views/navbar.html'
         };
     })
-    .directive('images', function() {
+    .directive('images', function(ngDialog) {
         return {
             restrict: 'E',
             replace: 'true',
-            templateUrl: 'views/images.html'
+            templateUrl: 'views/images.html',
+            link: function(scope, elem, attrs) {
+                scope.open = function() {
+                    ngDialog.open({template: 'imageDialog', scope: scope});
+                }
+            }
         };
     })
     .directive('uploader', ['$timeout', function(timer) {

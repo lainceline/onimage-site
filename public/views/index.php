@@ -5,8 +5,8 @@
     <title>B is for Bryan</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/ngDialog.min.css">
-    <link rel="stylesheet" href="css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.2.3/css/ngDialog.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.2.3/css/ngDialog-theme-default.min.css">
 
     <link rel="stylesheet" href="css/bryan.min.css">
 
@@ -30,7 +30,7 @@
 
     <script type="text/ng-template" id="imageDialog">
         <div class="ngdialog-message">
-            <img ng-show="ngDialogData.image" ng-src="{{image.image}}" /></img>
+            <img ng-src="{{image.image}}" /></img>
         </div>
     </script>
 
@@ -40,7 +40,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
 
     <script src="js/vendor/ng-infinite-scroll.min.js"></script>
-    <script src="js/vendor/ngDialog.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.2.3/js/ngDialog.min.js"></script>
 
     <script src="js/controllers/imageCtrl.js"></script>
     <script src="js/directives/imageDirectives.js"> </script>
