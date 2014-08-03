@@ -11,13 +11,13 @@ html(lang="en")
         link(rel='stylesheet', href='css/bryan.min.css')
 
         script(src='//cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.min.js')
-    body(ng-app="imageApp")
+    body#top(ng-app="imageApp", data-spy="scroll", data-target=".navbar-collapse")
 
         images-navbar
 
         .wrap(ng-controller="ImageController as imageCtrl")
             uploader
-            .img-container(infinite-scroll="loadMore()", infinite-scroll-distance="1")
+            .img-container#img-container(infinite-scroll="loadMore()", infinite-scroll-distance="1")
                 .row
                     images(ng-repeat="image in images | filter:search")
 
