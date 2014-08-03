@@ -41,13 +41,14 @@ angular.module('imageDirectives', [])
                     thumbnailHeight: 80,
                     parallelUploads: 20,
                     previewTemplate: previewTemplate,
-                    autoQueue: false,
+                    autoProcessQueue: false,
                     previewsContainer: '#previews',
-                    clickable: '.fileinput-button'
+                    clickable: '.fileinput-button',
+                    acceptedFiles: 'image/*, .jpg, .jpeg, .gif, .png'
                 });
 
                 myDropzone.on('addedfile', function(file) {
-                    file.previewElement.querySelector('.start').onclick = function() {myDropzone.enqueueFile(file); };
+                    file.previewElement.querySelector('.start').onclick = function() {myDropzone.processQueue(file); };
                 });
 
                 // Update the total progress bar
@@ -74,7 +75,7 @@ angular.module('imageDirectives', [])
                 // The "add files" button doesn't need to be setup because the config
                 // `clickable` has already been specified.
                 elem.find('#actions .start').on('click', function() {
-                    myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+                    myDropzone.processQueue(myDropzone.getQueuedFiles());
                 });
 
                 elem.find('#actions .cancel').on('click', function() {
