@@ -8,6 +8,7 @@ var codecept	    = require('gulp-codeception');
 var git             = require('gulp-git');
 var jade            = require('gulp-jade');
 var clean           = require('gulp-clean');
+var prettifyhtml    = require('gulp-html-prettify');
 
 gulp.task('sass', function() {
     return gulp.src('src/styles/sass/*.scss')
@@ -21,6 +22,7 @@ gulp.task('sass', function() {
 gulp.task('make-jade', function() {
    return gulp.src('src/views/*.jade')
        .pipe(jade())
+       .pipe(prettifyhtml())
        .pipe(gulp.dest('public/views/'));
 });
 
@@ -52,5 +54,5 @@ gulp.task('clean-css', function() {
 });
 
 gulp.task('clean', ['clean-views', 'clean-css'], function() {
-
+    //Just runs the individual clean tasks
 });
