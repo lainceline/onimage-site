@@ -1,6 +1,6 @@
 angular.module('imageCtrl', [])
-    .controller('ImageController', function($scope, $http, ngDialog) {
-
+    .controller('ImageController', function($scope, $http) {
+/*
         $scope.counter = 1;
 
         var imagePromise = $http.get('/images/' + $scope.counter);
@@ -33,8 +33,15 @@ angular.module('imageCtrl', [])
                     console.log(status);
                 });
         }
+*/
 
-        $scope.openImage = function() {
+        var imagePromise = $http.get('/images');
 
-        };
+        imagePromise
+            .success(function(data, status, headers, config) {
+                $scope.images = data;
+            })
+            .error(function(data, status, headers, config) {
+                console.log(status);
+            });
     });
