@@ -48,7 +48,15 @@ angular.module('imageDirectives', [])
                 });
 
                 myDropzone.on('addedfile', function(file) {
-                    file.previewElement.querySelector('.start-single').onclick = function() {myDropzone.processFile(file); };
+                    elem.find('.start').removeAttr('disabled');
+                    file.previewElement.querySelector('.start-single').onclick = function() { myDropzone.processFile(file); };
+                });
+
+                myDropzone.on('removedfile', function(file) {
+                    // if there's no files in the preview box now, then disable the upload all button
+                   if (elem.find('#previews').children().length < 1) {
+                       elem.find('.start').attr('disabled', 'disabled');
+                   }
                 });
 
                 // Update the total progress bar
