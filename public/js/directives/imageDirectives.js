@@ -81,6 +81,7 @@ angular.module('imageDirectives', [])
 
                 // Hide the total progress bar when nothing's uploading anymore
                 myDropzone.on('queuecomplete', function(progress) {
+                    startAll.attr('disabled', 'disabled');
                     totalProgress.css('opacity', '0');
                 });
 
