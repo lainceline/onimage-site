@@ -45,7 +45,7 @@ class InstallCommand extends Command {
         $this->info('Node dependencies installed');
 
         $this->info('Running Gulp.js tasks');
-	    $output = shell_exec('gulp jade');
+	    $output = shell_exec('gulp make');
         $this->info($output);
         $this->info('Gulp.js tasks complete');
 
