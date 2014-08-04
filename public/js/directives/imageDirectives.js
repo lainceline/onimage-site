@@ -67,9 +67,13 @@ angular.module('imageDirectives', [])
                 myDropzone.on("queuecomplete", function(progress) {
                     elem.find("#total-progress").get(0).style.opacity = "0";
                     timer(function() {
-                        elem.find('.preview-box').css('display', 'none');
+                        elem.find('.file-row').remove();
                     }, 5000);
                 });
+
+                myDropzone.on('success', function(file, image) {
+                    scope.images.push(image);
+                })
 
                 // Setup the buttons for all transfers
                 // The "add files" button doesn't need to be setup because the config
