@@ -121,7 +121,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-        'Intervention\Image\ImageServiceProvider'
+        'Intervention\Image\ImageServiceProvider',
+        'Cerbero\Oauth\OauthServiceProvider'
 
 	),
 
@@ -189,6 +190,10 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+        'Google'            => 'Cerbero\Oauth\Facades\Google',
+        'Facebook'          => 'Cerbero\Oauth\Facades\Facebook',
+        'Twitter'           => 'Cerbero\Oauth\Facades\Twitter',
+        'Yahoo'             => 'Cerbero\Oauth\Facades\Yahoo'
 	),
 
 );
