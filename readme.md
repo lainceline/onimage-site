@@ -1,25 +1,53 @@
-## Laravel PHP Framework
+# onimage
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+![License](https://poser.pugx.org/laravel/framework/license.svg)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+Onimage is a image upload and display site built with Angular.js, Laravel, and Bootstrap.  It utilizes dropzone.js for robust, simple, and easily customizable drag-and-drop multiple file uploading.
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+It uses Gulp.js for easy setup and compilation of Sass and Jade files.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+### Installing
 
-## Official Documentation
+1. Clone (or fork) the repository.
+2. You'll need [Composer](http://getcomposer.org), [node.js](http://nodejs.org/), and [npm](https://www.npmjs.org/) if you don't already have them.
+3. Run `composer install` in the repository root directory to get Laravel and dependencies set up.
+4. Run `php artisan onimage:install` to automatically install the Node.js dependencies, and execute the Gulp tasks to compile the Sass and Jade files.
+5. Install your database of choice if you haven't already.  Your database connection info goes in app/config/database.php
+6. Run `php artisan migrate` to create the database table.  Use the `--seed` option if you want some sample cat image data.  Note that this will fill your public/uploads with cat images.
+7. That's it.  `php artisan serve` and you're ready to start developing locally. `gulp watch` will compile changes you make to the Sass and Jade on the fly.
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+### Contributing
 
-### Contributing To Laravel
+Onimage currently needs:
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+* Automated tests.  Codeception is in the composer dev requirements.
+* Reimplementation of ng-infinite-scroll in a way to allow the Search field to work properly.
+
+### Third party libraries and tools
+
+Onimage uses the following:
+
+* Angular.js
+* Laravel
+* Twitter Bootstrap
+* dropzone.js
+* Composer
+* Font Awesome
+* gulp
+* Assorted gulp libraries, such as gulp-jade, gulp-sass, gulp-minifycss, gulp-prettifyhtml, etc
+* Codeception
+* npm
+* node.js
+* Jade
+* Sass
+* ngDialog
+* jQuery
+* ng-infinite-scroll
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Onimage is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+### Acknowledgements
+Huge thanks to my friend Robert for introducing me to Laravel and Angular.js, and helping me to understand them better.
+Huge thanks also to my friend Bryan, who inspired this project.
