@@ -9,7 +9,7 @@ It uses Gulp.js for easy setup and compilation of Sass and Jade files.
 ### Installing
 
 1. Clone (or fork) the repository.
-2. You'll need [Composer](http://getcomposer.org), [node.js](http://nodejs.org/), and [npm](https://www.npmjs.org/) if you don't already have them.
+2. You'll need [Composer](http://getcomposer.org), [node.js](http://nodejs.org/), [npm](https://www.npmjs.org/), and [Gulp.js](http://gulpjs.com) installed globally if you don't already have them.
 3. You also need the php-gd library installed and enabled for your PHP installation.
 4. Run `composer install` in the repository root directory to get Laravel and dependencies set up.
 5. Run `php artisan onimage:install` to automatically install the Node.js dependencies, and execute the Gulp tasks to compile the Sass and Jade files.
