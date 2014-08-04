@@ -34,6 +34,10 @@ gulp.task('jade', ['make-jade'], function() {
         .pipe(gulp.dest('public/views/'));
 });
 
+gulp.task('make', ['jade', 'sass'], function() {
+    //just execute the other tasks
+})
+
 gulp.task('test', function() {
     return gulp.src('./app/tests/**/*.php').pipe(codecept());
 });
