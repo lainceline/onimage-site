@@ -5,7 +5,12 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "intervention/image": "2.*"
+        "intervention/image": "2.*",
+        "cerbero/oauth": "2.1.0@dev",
+        "google/apiclient": "1.0.3-beta@dev",
+        "facebook/php-sdk": "3.2.3",
+        "kertz/twitteroauth": "dev-master@dev",
+        "cerbero/yos-social-php5": "dev-master@dev"
 	},
 	"autoload": {
 		"classmap": [
