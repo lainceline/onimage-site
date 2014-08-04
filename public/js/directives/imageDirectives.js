@@ -28,8 +28,14 @@ angular.module('imageDirectives', [])
             replace: 'true',
             templateUrl: 'views/uploader.html',
             link: function(scope, elem, attrs) {
-                var jumbotron = elem.get(0);
-                var previewNode = elem.find('#template').get(0);
+
+                var jumbotron       = elem.get(0);
+                var startAll        = elem.find('.start');
+                var previews        = elem.find('#previews');
+                var totalProgress   = elem.find('#total-progress');
+                var progressBar     = elem.find('#total-progress .progress-bar');
+
+                var previewNode     = elem.find('#template').get(0);
                 var previewTemplate = previewNode.parentNode.innerHTML;
 
                 previewNode.id = '';
@@ -48,32 +54,34 @@ angular.module('imageDirectives', [])
                 });
 
                 myDropzone.on('addedfile', function(file) {
-                    elem.find('.start').removeAttr('disabled');
-                    file.previewElement.querySelector('.start-single').onclick = function() { myDropzone.processFile(file); };
+                    startAll.removeAttr('disabled');
+                    $(file.previewElement).find('.start-single').on('click', function() {
+                        myDropzone.processFile(file);
+                    });
                 });
 
                 myDropzone.on('removedfile', function(file) {
                     // if there's no files in the preview box now, then disable the upload all button
-                   if (elem.find('#previews').children().length < 1) {
-                       elem.find('.start').attr('disabled', 'disabled');
+                   if (previews.children().length < 1) {
+                       startAll.attr('disabled', 'disabled');
                    }
                 });
 
                 // Update the total progress bar
-                myDropzone.on("uploadprogress", function(file, progress) {
-                    elem.find("#total-progress .progress-bar").get(0).style.width = progress + "%";
+                myDropzone.on('uploadprogress', function(file, progress) {
+                    progressBar.css('width', progress + '%');
                 });
 
-                myDropzone.on("sending", function(file) {
+                myDropzone.on('sending', function(file) {
                     // Show the total progress bar when upload starts
-                    elem.find("#total-progress").get(0).style.opacity = "1";
+                    totalProgress.css('opacity', '1');
                     // And disable the start button
-                    file.previewElement.querySelector(".start-single").setAttribute("disabled", "disabled");
+                    $(file.previewElement).find('.start-single').attr('disabled', 'disabled');
                 });
 
                 // Hide the total progress bar when nothing's uploading anymore
-                myDropzone.on("queuecomplete", function(progress) {
-                    elem.find("#total-progress").get(0).style.opacity = "0";
+                myDropzone.on('queuecomplete', function(progress) {
+                    totalProgress.css('opacity', '0');
                 });
 
                 myDropzone.on('success', function(file, image) {
@@ -85,20 +93,16 @@ angular.module('imageDirectives', [])
                     }, 2000);
 
                     //only reset the width once the bar is completely hidden to avoid jarring visuals
-                    elem.find("#total-progress").fadeOut(400, function() {
-                        elem.find('#total-progress .progress-bar').get(0).style.width = '0%';
+                    totalProgress.fadeOut(400, function() {
+                        progressBar.css('width', '0%');
                     });
                 });
 
                 // Setup the buttons for all transfers
                 // The "add files" button doesn't need to be setup because the config
                 // `clickable` has already been specified.
-                elem.find('#actions .start').on('click', function() {
+                startAll.on('click', function() {
                     myDropzone.processQueue(myDropzone.getQueuedFiles());
-                });
-
-                elem.find('#actions .cancel').on('click', function() {
-                   myDropzone.removeAllFiles(true);
                 });
             }
         };
