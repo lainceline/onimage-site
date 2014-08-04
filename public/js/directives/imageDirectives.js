@@ -73,8 +73,8 @@ angular.module('imageDirectives', [])
 
                     //trigger animations to hide the file row and the total progress bar
                     timer(function() {
-                        elem.find('.file-row').fadeOut('slow');
-                    }, 5000);
+                        $(file.previewElement).fadeOut('slow');
+                    }, 2000);
 
                     //only reset the width once the bar is completely hidden to avoid jarring visuals
                     elem.find("#total-progress").fadeOut(400, function() {
