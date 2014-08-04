@@ -6,7 +6,7 @@ return array(
 	 * URI where the user is redirected to
 	 * after having granted authorization.
 	 */
-	'redirect_uri' => '',
+	'redirect_uri' => 'main',
 
 	/**
 	 * Driver to use as token storage.
