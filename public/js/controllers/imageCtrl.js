@@ -35,6 +35,7 @@ angular.module('imageCtrl', [])
                 });
         }
 */
+        $scope.images = [];
 
         var imagePromise = $http.get('/images');
 

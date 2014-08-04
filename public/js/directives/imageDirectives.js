@@ -66,13 +66,13 @@ angular.module('imageDirectives', [])
                 // Hide the total progress bar when nothing's uploading anymore
                 myDropzone.on("queuecomplete", function(progress) {
                     elem.find("#total-progress").get(0).style.opacity = "0";
-                    timer(function() {
-                        elem.find('.file-row').remove();
-                    }, 5000);
                 });
 
                 myDropzone.on('success', function(file, image) {
                     scope.images.push(image);
+                    timer(function() {
+                        elem.find('.file-row').fadeOut('slow');
+                    }, 5000);
                 })
 
                 // Setup the buttons for all transfers
