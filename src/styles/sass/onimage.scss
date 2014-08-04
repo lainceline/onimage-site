@@ -44,3 +44,20 @@ body {
     }
   }
 }
+
+.navbar-bottom {
+  margin-bottom: 0px;
+  border-radius: 0;
+  color: #f9f9f9;
+  padding-top: 1em;
+
+  span, a {
+    position: relative;
+    vertical-align: middle;
+  }
+  
+  .fa {
+    font-size: 2em;
+    color: #f9f9f9;
+  }
+}

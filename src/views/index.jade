@@ -5,10 +5,11 @@ html(lang="en")
         title B is for Bryan
 
         link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+        link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
         link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.2.3/css/ngDialog.min.css')
         link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.2.3/css/ngDialog-theme-default.min.css')
 
-        link(rel='stylesheet', href='css/bryan.min.css')
+        link(rel='stylesheet', href='css/onimage.min.css')
 
         script(src='//cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.min.js')
     body#top(ng-app="imageApp", data-spy="scroll", data-target=".navbar-collapse")
@@ -20,6 +21,8 @@ html(lang="en")
             .img-container#img-container(infinite-scroll="loadMore()", infinite-scroll-distance="1")
                 .row
                     images(ng-repeat="image in images | filter:search")
+
+        images-footer
 
         script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
         script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
