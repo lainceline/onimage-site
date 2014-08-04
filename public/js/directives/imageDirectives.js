@@ -86,7 +86,7 @@ angular.module('imageDirectives', [])
                 });
 
                 myDropzone.on('success', function(file, image) {
-                    scope.images.push(image);
+                    scope.images.unshift(image);
 
                     //trigger animations to hide the file row and the total progress bar
                     timer(function() {
