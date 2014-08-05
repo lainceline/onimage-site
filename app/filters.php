@@ -33,6 +33,13 @@ App::after(function($request, $response)
 |
 */
 
+Route::filter('loggedIntoGoogle', function()
+{
+    //if (!Google::client()->getAccessToken()) {
+     //   return Redirect::to('login');
+    //}
+});
+
 Route::filter('auth', function()
 {
 	if (Auth::guest())

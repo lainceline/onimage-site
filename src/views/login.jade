@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Onimage - Login
+
+        link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+        link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+
+        link(rel='stylesheet', href='css/login.min.css')
+    body
+        .container-full
+            .row
+                .col-lg-12.text-center.v-center
+                    h1 B is for Bryan
+                    p.lead Please sign in
+                    br
+                    br
+                    br
+                    form.col-lg-12
+                        .input-group
+                            span.input-group-btn
+                                | <a class="btn btn-lg btn-primary" href="<?php echo $link; ?>">
+                                |   <i class="fa fa-google-plus"></i>
+                                |   <span>Sign in using Google</span>
+                                | </a>
+

@@ -26,12 +26,23 @@ gulp.task('make-jade', function() {
        .pipe(gulp.dest('public/views/'));
 });
 
-gulp.task('jade', ['make-jade'], function() {
+gulp.task('rename-index', ['make-jade'], function() {
     // Do this to please Laravel.  It will only route to a .php file
     return gulp.src('public/views/index.html')
         .pipe(clean({force: true}))
         .pipe(rename({ extname: '.php' }))
         .pipe(gulp.dest('public/views/'));
+});
+
+gulp.task('rename-login', ['make-jade'], function() {
+    return gulp.src('public/views/login.html')
+        .pipe(clean({force: true}))
+        .pipe(rename({ extname: '.php' }))
+        .pipe(gulp.dest('public/views/'));
+});
+
+gulp.task('jade', ['rename-index', 'rename-login'], function() {
+
 });
 
 gulp.task('make', ['jade', 'sass'], function() {

@@ -6,7 +6,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
         "intervention/image": "2.*",
-        "cerbero/oauth": "2.1.0@dev",
+        "artdarek/oauth-4-laravel": "dev-master@dev",
         "google/apiclient": "1.0.3-beta@dev",
         "facebook/php-sdk": "3.2.3",
         "kertz/twitteroauth": "dev-master@dev",

@@ -122,7 +122,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Intervention\Image\ImageServiceProvider',
-        'Cerbero\Oauth\OauthServiceProvider'
+        'Artdarek\OAuth\OAuthServiceProvider'
 
 	),
 
@@ -190,10 +190,7 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-        'Google'            => 'Cerbero\Oauth\Facades\Google',
-        'Facebook'          => 'Cerbero\Oauth\Facades\Facebook',
-        'Twitter'           => 'Cerbero\Oauth\Facades\Twitter',
-        'Yahoo'             => 'Cerbero\Oauth\Facades\Yahoo'
+        'OAuth'             => 'Artdarek\OAuth\Facade\OAuth',
 	),
 
 );
