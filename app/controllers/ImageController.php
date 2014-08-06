@@ -27,8 +27,8 @@ class ImageController extends \BaseController {
 
         $validator = Validator::make($input, $rules);
 
-        $imagePath = 'public/uploads/';
-        $thumbPath = 'public/uploads/thumbs/';
+        $imagePath = public_path().'/uploads/';
+        $thumbPath = public_path().'/uploads/thumbs/';
 
         $origFilename = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
