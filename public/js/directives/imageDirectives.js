@@ -50,7 +50,8 @@ angular.module('imageDirectives', [])
                     autoProcessQueue: false,
                     previewsContainer: '#previews',
                     clickable: '.fileinput-button',
-                    acceptedFiles: 'image/*, .jpg, .jpeg, .gif, .png'
+                    acceptedFiles: 'image/*, .jpg, .jpeg, .gif, .png',
+                    maxFilesize: 2
                 });
 
                 myDropzone.on('addedfile', function(file) {
