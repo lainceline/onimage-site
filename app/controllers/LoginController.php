@@ -8,6 +8,8 @@ class LoginController extends \BaseController {
 
         $googleService = OAuth::consumer('Google');
 
+        $url = $googleService->getAuthorizationUri();
+
         if (!empty($code)) {
             $token = $googleService->requestAccessToken($code);
 
@@ -15,15 +17,13 @@ class LoginController extends \BaseController {
 
             if (isset($_ENV['DOMAIN']) && strpos($result['email'], $_ENV['DOMAIN']) === false) {
                 $error = 'Sorry.  Your Google account does not belong to the proper domain.';
-                return View::make('login')->withError($error);
+                return View::make('login')->withError($error)->withLink($url);
             } else {
                 Session::put('token', $token);
                 return Redirect::route('index');
             }
 
         } else {
-
-            $url = $googleService->getAuthorizationUri();
 
             return View::make('login')->withLink($url);
         }

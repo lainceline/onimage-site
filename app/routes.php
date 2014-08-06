@@ -18,14 +18,10 @@ Route::get('/', array('before' => 'loggedIntoGoogle', 'as' => 'index', function(
 Route::get('/login', array('as' => 'login', 'uses' => 'LoginController@loginWithGoogle'));
 
 Route::get('/logout', function() {
-    if (Session::has('token')) {
-        Session::forget('token');
-    }
 
-    $googleService = OAuth::consumer('Google');
-    $url = $googleService->getAuthorizationUri();
+    Session::forget('token');
 
-    return View::make('login')->withMsg('You have successfully been logged out.')->withLink($url);
+    return Redirect::route('index');
 });
 
 Route::get('/images', 'ImageController@all');

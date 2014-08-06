@@ -26,6 +26,9 @@
             <div class="col-lg-12 text-center v-center">
                 <h1>B is for Bryan</h1>
                 <p class="lead">Please sign in</p>
+                @if (isset($error))
+                    <p class="text-danger">{{ $error }}</p>
+                @endif
                 <br>
                 <br>
                 <br>
