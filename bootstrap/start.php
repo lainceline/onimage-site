@@ -26,7 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('james-mba-arch'),
+	'local' => array('localhost'),
+	'production' => array('*.com')
 
 ));
 
