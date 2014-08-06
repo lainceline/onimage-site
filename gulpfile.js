@@ -34,14 +34,7 @@ gulp.task('rename-index', ['make-jade'], function() {
         .pipe(gulp.dest('public/views/'));
 });
 
-gulp.task('rename-login', ['make-jade'], function() {
-    return gulp.src('public/views/login.html')
-        .pipe(clean({force: true}))
-        .pipe(rename({ extname: '.php' }))
-        .pipe(gulp.dest('public/views/'));
-});
-
-gulp.task('jade', ['rename-index', 'rename-login'], function() {
+gulp.task('jade', ['rename-index'], function() {
 
 });
 
