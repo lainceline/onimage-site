@@ -24,12 +24,14 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
+$env = $app->detectEnvironment( function() {
 
-	'local' => array('localhost'),
-	'production' => array('*.com')
-
-));
+    if (file_exists( __DIR__.'/environment.php')) {
+        return include __DIR__.'/environment.php';
+    } else {
+        return 'local';
+    }
+});
 
 /*
 |--------------------------------------------------------------------------
