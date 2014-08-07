@@ -33,11 +33,12 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('loggedInWithGoogle', function()
+Route::filter('loggedIntoGoogle', function()
 {
     if (!Session::has('token')) {
-        return Redirect::route('login')->withError();
+        return Redirect::route('login');
     }
+
 });
 
 Route::filter('auth', function()
