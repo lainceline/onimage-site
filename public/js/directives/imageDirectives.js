@@ -49,7 +49,6 @@ angular.module('imageDirectives', [])
                     previewTemplate: previewTemplate,
                     autoProcessQueue: false,
                     previewsContainer: '#previews',
-                    clickable: '.fileinput-button',
                     acceptedFiles: 'image/*, .jpg, .jpeg, .gif, .png',
                     maxFilesize: 2
                 });
